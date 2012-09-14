@@ -40,10 +40,16 @@ source ~/.vim/autoclose.vim
 " let g:clang_complete_copen = 1
 
 " shortcuts
+map <F2> :e %:p:s,.h$,.X123X,:s,.cc$,.h,:s,.X123X$,.cc,<CR>
 map <F3> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 map <F4> :TlistToggle<cr>
 map <F7> :!echo "Building cscope db ..." && cscope -Rbq <CR>
 map <F8> :!echo "Building ctags db ..." && ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <C-g> :echo expand('%:p') <CR>
+
+" spaces for tabs
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " ~/.vimrc ends here
