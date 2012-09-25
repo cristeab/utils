@@ -1,0 +1,13 @@
+[alias]
+	ci = commit
+	co = checkout
+	br = branch
+	lp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	st = status -bs
+[user]
+	name = Bogdan Cristea
+	email = cristeab@gmail.com
+[color]
+	ui = auto
+[merge]
+	tool = vimdiff
