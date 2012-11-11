@@ -37,6 +37,8 @@ filetype plugin on
 filetype indent on
 source ~/.vim/cscope_maps.vim
 source ~/.vim/autoclose.vim
+source ~/.vim/qml.vim
+source ~/.vim/qml_indent.vim
 " let g:clang_complete_copen = 1
 
 " shortcuts
