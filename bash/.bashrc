@@ -30,6 +30,8 @@ test -s ~/.alias && . ~/.alias || true
 
 alias cdw='cd ~/C++/ebookreader'
 alias simu='matlab -nodisplay -nosplash -nodesktop -nojvm'
+alias youtrack='java -Xmx512m -Djava.awt.headless=true -jar /home/bogdan/Soft/youtrack/youtrack-4.2.4.jar 1025'
+alias xcp='xclip -selection clipboard'
 
 c_red=`tput setaf 1`
 c_green=`tput setaf 2`
