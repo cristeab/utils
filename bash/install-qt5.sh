@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #updates Qt5 sources and rebuilds several modules
-#CONFIG_OPTS="-developer-build -nomake examples -nomake tests -opensource -confirm-license -release"
-CONFIG_OPTS="-nomake examples -nomake tests -opensource -confirm-license -release"
+CONFIG_OPTS="-developer-build -nomake examples -nomake tests -opensource -confirm-license -release"
+#CONFIG_OPTS="-nomake examples -nomake tests -opensource -confirm-license -release"
 
 #check platform type
 platform='unknown'
@@ -60,7 +60,7 @@ install_module()
   cp -r mkspecs/ ../qtbase/
 }
 
-#install headers in src root folder
+#install headers in src root folder (should use instead -developer-build)
 install_headers()
 {
   cp -r qscript/src/script/ qtbase/src/
@@ -82,22 +82,15 @@ assert_rc "Cannot build qtbase"
 echo "Build qtscript ..."
 cd ../qtscript
 build_module
-install_module
 
 echo "Build qtquick1 ..."
 cd ../qtquick1
 build_module
-install_module
 
 echo "Build qtmultimedia ..."
 cd ../qtmultimedia
 build_module
-install_module
 
 echo "Build qtxmlpatterns ..."
 cd ../qtxmlpatterns
 build_module
-install_module
-
-cd ..
-install_headers
