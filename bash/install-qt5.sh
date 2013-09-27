@@ -17,7 +17,7 @@ if [[ "$platform" == 'Darwin' ]]; then
   echo "Building for iOS target"
   CONFIG_OPTS="$CONFIG_OPTS -xplatform macx-ios-clang"
   #check input arguments if any
-  if [ 0 -ne $# && "-e" -eq $1 ]; then
+  if [[ 0 -ne $# && "-e" -eq $1 ]]; then
     echo "Building for external device"
   else
     echo "Building for simulator"
