@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #updates Qt5 sources and rebuilds several modules
-CONFIG_OPTS="-developer-build -nomake examples -nomake tests -opensource -confirm-license -release"
+#CONFIG_OPTS="-developer-build -nomake examples -nomake tests -opensource -confirm-license -release"
+CONFIG_OPTS="-nomake examples -nomake tests -opensource -confirm-license -release"
 
 #check platform type
 platform='unknown'
@@ -51,6 +52,14 @@ build_module()
   assert_rc "Cannot build module"
 }
 
+#usually not needed
+install_module()
+{
+  cp -r include/ ../qtbase/
+  cp -r lib/ ../qtbase/
+  cp -r mkspecs/ ../qtbase/
+}
+
 cd qtbase
 assert_rc "This script should be started from the root folder"
 echo "Build qtbase ..."
@@ -63,6 +72,7 @@ assert_rc "Cannot build qtbase"
 echo "Build qtscript ..."
 cd ../qtscript
 build_module
+install_module #install qtscript in qtbase for qtquick1
 
 echo "Build qtquick1 ..."
 cd ../qtquick1
@@ -70,5 +80,9 @@ build_module
 
 echo "Build qtmultimedia ..."
 cd ../qtmultimedia
+build_module
+
+echo "Build qtxmlpatterns ..."
+cd ../qtxmlpatterns
 build_module
 
