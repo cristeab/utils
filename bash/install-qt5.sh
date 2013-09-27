@@ -52,12 +52,22 @@ build_module()
   assert_rc "Cannot build module"
 }
 
-#usually not needed
+#install module in qtbase folder
 install_module()
 {
   cp -r include/ ../qtbase/
   cp -r lib/ ../qtbase/
   cp -r mkspecs/ ../qtbase/
+}
+
+#install headers in src root folder
+install_headers()
+{
+  cp -r qscript/src/script/ qtbase/src/
+  cp -r qscript/src/scripttools/ qtbase/src/
+  cp -r qtquick1/src/declarative/ qtbase/src/
+  cp -r qtmultimedia/src/multimedia/ qtbase/src/
+  cp -r qtxmlpatterns/src/xmlpatterns/ qtbase/src/
 }
 
 cd qtbase
@@ -72,17 +82,22 @@ assert_rc "Cannot build qtbase"
 echo "Build qtscript ..."
 cd ../qtscript
 build_module
-install_module #install qtscript in qtbase for qtquick1
+install_module
 
 echo "Build qtquick1 ..."
 cd ../qtquick1
 build_module
+install_module
 
 echo "Build qtmultimedia ..."
 cd ../qtmultimedia
 build_module
+install_module
 
 echo "Build qtxmlpatterns ..."
 cd ../qtxmlpatterns
 build_module
+install_module
 
+cd ..
+install_headers
