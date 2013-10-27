@@ -19,6 +19,7 @@ if [[ "$platform" == 'Darwin' ]]; then
   #check input arguments if any
   if [[ 0 -ne $# && "-e" -eq $1 ]]; then
     echo "Building for external device"
+    CONFIG_OPTS="$CONFIG_OPTS -sdk iphoneos"
   else
     echo "Building for simulator"
     CONFIG_OPTS="$CONFIG_OPTS -sdk iphonesimulator"
