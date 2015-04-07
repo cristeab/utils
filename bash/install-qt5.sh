@@ -82,16 +82,16 @@ assert_rc "Cannot build qtbase"
 
 echo "Build qtscript ..."
 cd ../qtscript
-build_module
+#build_module
 
 echo "Build qtquick1 ..."
 cd ../qtquick1
-build_module
+#build_module
 
 echo "Build qtmultimedia ..."
 cd ../qtmultimedia
-build_module
+#build_module
 
 echo "Build qtxmlpatterns ..."
 cd ../qtxmlpatterns
-build_module
+#build_module
